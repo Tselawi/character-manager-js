@@ -1,0 +1,33 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+.charCard {
+  display: flex;
+}
+.char {
+  max-width: 300px;
+  min-height: 120px;
+  display: flex;
+  border: 1px solid black;
+  padding: 5px;
+  margin: 10px;
+}
+
+.actions {
+  width: 60px;
+  margin-right: 5px;
+}
+.btn {
+  height: 40px;
+  width: 40px;
+  background-color: aquamarine;
+  border-radius: 50%;
+}
+
+.grid {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
