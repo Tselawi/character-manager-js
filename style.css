@@ -1,0 +1,64 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* .card-container{
+    max-width: 1200px;
+   
+} */
+
+#template-card{
+    display: flex;
+    width: 500px;
+    height: 200px;
+    border: 1px solid black;
+}
+.image-character{
+    width: 140px;
+    height: 140px;
+    border: 1px solid black;
+}
+/* .text-container{
+    
+} */
+.name-character{
+    width: 240px;
+    height: 30px;
+    border: 1px solid black;
+}
+.shortdisc-character{
+    width: 240px;
+    height: 80px;
+    border: 1px solid black;
+}
+
+/* botton to create new person */
+/* Full-width input fields */
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  /* Set a style for all buttons */
+#create {
+    background-color: #e68e3b;
+    color: white;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 18%;
+  }
+  #create:hover {
+    opacity: 0.8;
+  }
+
+  /* Center the image and position the close button */
+.container {
+    padding: 16px;
+  }
+  

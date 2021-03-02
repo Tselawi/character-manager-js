@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Character Manager js</title>
+</head>
+
+<body>
+    <header>
+        <div class="action">
+            <button type="button" id="create">Create Your Perso</button>
+        </div>
+    </header>
+    <template id="template-card">
+        <div class=char>
+            <div class="image-character">
+                <img class="charImg" src="" alt="images">
+            </div>
+            <div class="text-container">
+                <h4 class="name-character"></h4>
+                <p class="shortdisc-character"></p>
+            </div>
+
+            <div class="action">
+                <button type="button" id="detail">More</button>
+                <button type="button" id="edit">Edit</button>
+                <button type="button" id="delete">Delete</button>
+            </div>
+        </div>
+    </template>
+    <div id="target"></div>
+    <script type="text/javascript" src="app.js"></script>
+</body>
+
+</html>
