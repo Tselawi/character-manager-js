@@ -8,25 +8,110 @@
     <title>Document</title>
   </head>
   <body>
-    <template id="charCard">
-      <div class="char">
-        <img class="charImg" src="" />
+    <header></header>
+    <main>
+      <!-- Tools Bar -->
+      <div class="toolbar">
+        <div class="serach"></div>
+        <button class="newBtn btn">New</button>
 
-        <div class="charDetails">
-          <h4 class="charName"></h4>
-          <p class="charShortDesc"></p>
-        </div>
-
-        <div class="actions">
-          <button class="moreBtn btn">More</button>
-          <button class="editBtn btn">Edit</button>
-          <button class="deleteBtn btn">Delete</button>
+        <div class="modalNew-bg">
+          <div class="modalNew">
+            <div class="char newChar">
+              <form action="#" method="POST">
+                <label for="uname"><b>Name</b></label>
+                <input
+                  type="text"
+                  placeholder="Enter your new person name"
+                  name="uname"
+                  required
+                />
+                <label for="psw"><b>Short description</b></label>
+                <input
+                  type="text"
+                  placeholder="Describe your hero in one line"
+                  name="psw"
+                  required
+                />
+                <label for="psw"><b>Select image:</b></label>
+                <input type="file" id="file-selector" multiple />
+                <label for="psw"><b>Description</b></label>
+                <input type="text" rows="12" />
+                <button type="button" id="run">Submit</button>
+              </form>
+              <span class="modalNew-close">X</span>
+            </div>
+          </div>
         </div>
       </div>
-    </template>
+      <!-- New Char Modal-->
+      <!--
+      <h2>Modal CREATE NEW HERO Form</h2>
+        <div class="action">
+            <button type="button" id="create">Create Your Personal</button>
+            <div id="new-window" class="modal">
+                <form class="modal-content animate">
+                    <div class="imgcontainer">
+                        <span class="close" title="Close Modal">&times;</span>
+                    </div>
 
-    <div class="grid"><div id="target"></div></div>
+                    <div class="container modal-bg">
+                        <div class="title modal">
+                            <h1>create a new person</h1>
+                            <P>Fill in all fields with information about your Character </P>
+                        </div>
+                        <form action="#" method="POST">
+                        <label for="uname"><b>Name</b></label>
+                            <input type="text" placeholder="Enter your new person name" name="uname" required>
+                        <label for="psw"><b>Short description</b></label>
+                            <input type="text" placeholder="Describe your hero in one line" name="psw" required>
+                        <label for="psw"><b>Select image:</b></label>
+                            <input type="file" id="file-selector" multiple>
+                        <label for="psw"><b>Description</b></label>
+                            <input type="text" rows="12">
+                        <button type="button" id="run">Submit</button>
+                        </form>
+                    </div>
+            </div>
+-->
+      <!-- Card template -->
+      <template id="charCard">
+        <div class="char">
+          <img class="charImg" src="" />
 
-    <script src="./script.js"></script>
+          <div class="charDetails">
+            <h4 class="charName"></h4>
+            <p class="charShortDesc"></p>
+          </div>
+
+          <div class="actions">
+            <!--
+          <button class="moreBtn btn">More</button>
+          <button class="editBtn btn">Edit</button>
+          <button class="deleteBtn btn">Del</button>
+          --></div>
+        </div>
+      </template>
+      <!-- Card grid -->
+      <div class="grid"><div id="target"></div></div>
+
+      <!-- Modal More -->
+      <div class="modal-bg">
+        <div class="modal modalMore">
+          <div class="char">
+            <img class="charImg" src="" />
+
+            <div class="charDetails">
+              <h4 class="charName"></h4>
+              <p class="charShortDesc"></p>
+              <p class="charId"></p>
+            </div>
+            <span class="modal-close">X</span>
+          </div>
+        </div>
+      </div>
+      <script src="./script.js"></script>
+    </main>
+    <footer></footer>
   </body>
 </html>

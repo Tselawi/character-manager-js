@@ -2,32 +2,77 @@
   padding: 0px;
   margin: 0px;
 }
-.charCard {
-  display: flex;
-}
+
 .char {
-  max-width: 300px;
+  width: 40%;
+  max-width: 40%;
   min-height: 120px;
   display: flex;
+  justify-content: space-between;
   border: 1px solid black;
+  border-radius: 20px;
   padding: 5px;
   margin: 10px;
+  flex-grow: 2;
 }
 
+.charImg {
+  max-width: 30%;
+  height: 100%;
+}
+.charDetails {
+  width: 50%;
+}
 .actions {
-  width: 60px;
-  margin-right: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .btn {
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   background-color: aquamarine;
   border-radius: 50%;
 }
-
-.grid {
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
+.toolbar {
+  padding: 1rem 0;
 }
+#target,
+.toolbar {
+  max-width: 1000px;
+  margin: 1rem auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  border: 1px solid black;
+}
+
+.modal-bg,
+.modalNew-bg {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s;
+}
+
+.modal .modalNew {
+  background-color: blueviolet;
+}
+
+.modal-active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* new char modal */
