@@ -11,13 +11,37 @@
 
 <body>
     <header>
+        <h2>Modal CREATE NEW HERO Form</h2>
         <div class="action">
-            <button type="button" id="create">Create Your Perso</button>
-        </div>
+            <button type="button" id="create">Create Your Personal</button>
+            <div id="new-window" class="modal">
+                <form class="modal-content animate">
+                    <div class="imgcontainer">
+                        <span class="close" title="Close Modal">&times;</span>
+                    </div>
+
+                    <div class="container">
+                        <div class="title">
+                            <h1>create a new person</h1>
+                            <P>Fill in all fields with information about your Character </P>
+                        </div>
+                        <form action="#" method="POST">
+                        <label for="uname"><b>Name</b></label>
+                            <input type="text" placeholder="Enter your new person name" name="uname" required>
+                        <label for="psw"><b>Short description</b></label>
+                            <input type="text" placeholder="Describe your hero in one line" name="psw" required>
+                        <label for="psw"><b>Select image:</b></label>
+                            <input type="file" id="file-selector" multiple>
+                        <label for="psw"><b>Description</b></label>
+                            <input type="text" rows="12">
+                        <button type="button" id="run">Submit</button>
+                        </form>
+                    </div>
+            </div>
     </header>
     <template id="template-card">
         <div class=char>
-            <div class="image-character">
+            <div class="image-character" >
                 <img class="charImg" src="" alt="images">
             </div>
             <div class="text-container">
@@ -33,7 +57,7 @@
         </div>
     </template>
     <div id="target"></div>
-    <script type="text/javascript" src="app.js"></script>
+    <script  type="text/javascript" src="app.js"></script>
 </body>
 
 </html>

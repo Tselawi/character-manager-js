@@ -35,18 +35,20 @@
 
 /* botton to create new person */
 /* Full-width input fields */
-input[type=text] {
+
+  input[type="file"]{
     width: 100%;
     padding: 12px 20px;
-    margin: 8px 0;
+    margin: 30px 0px;
     display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+    border: none;
+    box-sizing: border-box; 
+    font-size: 1.5rem;
   }
   /* Set a style for all buttons */
 #create {
     background-color: #e68e3b;
-    color: white;
+    color: rgb(255, 255, 255);
     padding: 10px 20px;
     margin: 8px 0;
     border: none;
@@ -59,6 +61,61 @@ input[type=text] {
 
   /* Center the image and position the close button */
 .container {
-    padding: 16px;
+    width: auto;
+    height: auto;
+    background-color:rgb(51,51,51);
   }
+  label{
+      color: white;
+  }
+  .title{
+    margin: 22px 0;
+      background-color: rgb(199,79,42);
+      text-align: center;
+      font-size: 1.7rem;
+  }
+  #run{
+      width: auto;
+      margin: 22px 550px;
+      font-size: 1.9rem;
+  }
+  b{
+   
+      font-size: 1.2rem;
+  }
+ 
+  /* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll
+    opacity */
+    background-color: rgb(51,51,51);
+  padding-top: 120px;
+  opacity: .9;
+}
+/* Modal Content/inside Box */
+.modal-content {
+    background-color: #fefefe;
+     margin: 10% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
   
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  /* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    font-weight: bold;
+  }
+  .close:hover{
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
