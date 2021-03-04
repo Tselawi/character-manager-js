@@ -34,7 +34,8 @@
                   required
                 />
                 <label for="psw"><b>Select image:</b></label>
-                <input type="file" id="file-selector" multiple />
+                <input type="file" id="inputFileToLoad" onchange="encodeImageFileAsURL();" />
+                <div id="imgTest"></div>
                 <label for="psw"><b>Description</b></label>
                 <input type="text" rows="12" />
                 <button type="button" id="run">Submit</button>
@@ -85,11 +86,11 @@
           </div>
 
           <div class="actions">
-            <!--
-          <button class="moreBtn btn">More</button>
+            
+          <!-- <button class="moreBtn btn">More</button>
           <button class="editBtn btn">Edit</button>
-          <button class="deleteBtn btn">Del</button>
-          --></div>
+          <button class="deleteBtn btn">Delete</button> -->
+         </div>
         </div>
       </template>
       <!-- Card grid -->
