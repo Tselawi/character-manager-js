@@ -47,9 +47,11 @@
                   <input
                     class="button"
                     type="file"
-                    id="file-selector"
-                    multiple
+                    id="inputFileToLoad"
+                    type="file"
+                    onchange="encodeImageFileAsURL();"
                   />
+                  <div id="imgTest"></div>
                 </div>
                 <div class="newCharInputLine">
                   <label for="psw"><b>Description</b></label>
