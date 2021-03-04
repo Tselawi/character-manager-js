@@ -4,8 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>Character-Catalog</title>
   </head>
   <body>
     <header></header>
@@ -13,67 +17,53 @@
       <!-- Tools Bar -->
       <div class="toolbar">
         <div class="serach"></div>
-        <button class="newBtn btn">New</button>
+        <button class="newBtn">Add new</button>
 
+        <!-- New Char Modal-->
         <div class="modalNew-bg">
           <div class="modalNew">
-            <div class="char newChar">
+            <div class="newChar">
               <form action="#" method="POST">
-                <label for="uname"><b>Name</b></label>
-                <input
-                  type="text"
-                  placeholder="Enter your new person name"
-                  name="uname"
-                  required
-                />
-                <label for="psw"><b>Short description</b></label>
-                <input
-                  type="text"
-                  placeholder="Describe your hero in one line"
-                  name="psw"
-                  required
-                />
-                <label for="psw"><b>Select image:</b></label>
-                <input type="file" id="file-selector" multiple />
-                <label for="psw"><b>Description</b></label>
-                <input type="text" rows="12" />
-                <button type="button" id="run">Submit</button>
+                <div class="newCharInputLine">
+                  <label for="uname"><b>Name</b></label>
+                  <input
+                    type="text"
+                    placeholder="Enter your new person name"
+                    name="uname"
+                    required
+                  />
+                </div>
+                <div class="newCharInputLine">
+                  <label for="psw"><b>Short description </b></label>
+                  <input
+                    type="text"
+                    placeholder="Describe your hero in one line"
+                    name="psw"
+                    required
+                  />
+                </div>
+                <div class="newCharInputLine">
+                  <label for="psw"><b>Select image</b></label>
+                  <input
+                    class="button"
+                    type="file"
+                    id="file-selector"
+                    multiple
+                  />
+                </div>
+                <div class="newCharInputLine">
+                  <label for="psw"><b>Description</b></label>
+                  <input type="text" rows="12" />
+                </div>
+
+                <button class="button" type="button" id="run">Submit</button>
               </form>
               <span class="modalNew-close">X</span>
             </div>
           </div>
         </div>
       </div>
-      <!-- New Char Modal-->
-      <!--
-      <h2>Modal CREATE NEW HERO Form</h2>
-        <div class="action">
-            <button type="button" id="create">Create Your Personal</button>
-            <div id="new-window" class="modal">
-                <form class="modal-content animate">
-                    <div class="imgcontainer">
-                        <span class="close" title="Close Modal">&times;</span>
-                    </div>
 
-                    <div class="container modal-bg">
-                        <div class="title modal">
-                            <h1>create a new person</h1>
-                            <P>Fill in all fields with information about your Character </P>
-                        </div>
-                        <form action="#" method="POST">
-                        <label for="uname"><b>Name</b></label>
-                            <input type="text" placeholder="Enter your new person name" name="uname" required>
-                        <label for="psw"><b>Short description</b></label>
-                            <input type="text" placeholder="Describe your hero in one line" name="psw" required>
-                        <label for="psw"><b>Select image:</b></label>
-                            <input type="file" id="file-selector" multiple>
-                        <label for="psw"><b>Description</b></label>
-                            <input type="text" rows="12">
-                        <button type="button" id="run">Submit</button>
-                        </form>
-                    </div>
-            </div>
--->
       <!-- Card template -->
       <template id="charCard">
         <div class="char">
@@ -84,12 +74,7 @@
             <p class="charShortDesc"></p>
           </div>
 
-          <div class="actions">
-            <!--
-          <button class="moreBtn btn">More</button>
-          <button class="editBtn btn">Edit</button>
-          <button class="deleteBtn btn">Del</button>
-          --></div>
+          <div class="actions"></div>
         </div>
       </template>
       <!-- Card grid -->
@@ -98,8 +83,8 @@
       <!-- Modal More -->
       <div class="modal-bg">
         <div class="modal modalMore">
-          <div class="char">
-            <img class="charImg" src="" />
+          <div class="charModal">
+            <div class="charImgCont"><img class="charImg" src="" /></div>
 
             <div class="charDetails">
               <h4 class="charName"></h4>

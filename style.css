@@ -1,27 +1,45 @@
 * {
   padding: 0px;
   margin: 0px;
+  font-family: 'Montserrat', sans-serif;
 }
-
+header {
+  background-image: url('./src/assets/bg1.png');
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  min-height: 60vh;
+}
 .char {
+  background-color: #e6e6e6a4;
   width: 40%;
   max-width: 40%;
   min-height: 120px;
   display: flex;
   justify-content: space-between;
-  border: 1px solid black;
+
   border-radius: 20px;
-  padding: 5px;
+
   margin: 10px;
   flex-grow: 2;
+  overflow: hidden;
 }
 
-.charImg {
+.charImgCont {
   max-width: 30%;
   height: 100%;
 }
+.charImg {
+  width: 120px;
+  top: 0;
+  left: 0;
+}
 .charDetails {
   width: 50%;
+  overflow: hidden;
+}
+
+.charName {
+  padding: 1rem 0 1rem 0.2rem;
 }
 .actions {
   display: flex;
@@ -29,6 +47,7 @@
   justify-content: space-around;
   margin-top: auto;
   margin-bottom: auto;
+  margin-right: 1rem;
 }
 .btn {
   height: 30px;
@@ -46,10 +65,8 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-
-  border: 1px solid black;
 }
-
+/* modal-settings */
 .modal-bg,
 .modalNew-bg {
   position: fixed;
@@ -57,7 +74,7 @@
   height: 100vh;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 33, 59, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,13 +83,62 @@
   transition: visibility 0s, opacity 0.5s;
 }
 
-.modal .modalNew {
-  background-color: blueviolet;
+.modalNew-close,
+.modal-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-weight: 700;
 }
-
 .modal-active {
   visibility: visible;
   opacity: 1;
 }
 
-/* new char modal */
+/* newChar-settings */
+.newChar,
+.charModal {
+  background-color: #e6e6e6;
+  font-size: 1rem;
+  margin: 0 auto;
+  padding: 3rem;
+  border-radius: 20px;
+  display: flex;
+
+  flex-direction: column;
+  align-content: space-between;
+  justify-content: space-between;
+  position: relative;
+}
+
+.newCharInputLine {
+  margin: 1rem 0;
+}
+
+#run,
+.newBtn {
+  background-color: #f8bd5e;
+  border-radius: 9999px;
+  padding: 5px 10px;
+  border: none;
+  font-size: 1rem;
+  margin-top: 20px;
+}
+
+.newBtn {
+  margin: 1rem 10px;
+}
+
+input {
+  min-width: 50%;
+  border: none;
+  border-radius: 10px;
+  padding: 5px;
+  margin-left: 1rem;
+}
+
+input:focus {
+  border-radius: 10px;
+}
+
+/* charMore-settings */
