@@ -72,15 +72,19 @@
         }
       );
       //for edit botton edit JSON infon in card
+      const modalNewBg = document.querySelector('.modalNew-bg');
       Array.from(document.querySelectorAll('.editBtn')).forEach(
         (btn, index) => {
           const inputs = Array.from(document.querySelectorAll('input'));
           btn.addEventListener('click', async () => {
-            modalBg.classList.add('modal-active');
+            modalNewBg.classList.add('modal-active');
             const values = inputs.map(({ value }) => value.trim());
-            console.log(values);
+            document
+              .querySelector('.nameEditInput')
+              .setAttribute('placeholder', 'newname');
+            document.querySelector('#run').setAttribute('class', 'editRun');
             const [name, shortDescription] = values;
-            console.log(values);
+
             const response = await fetch(
               `https://character-database.becode.xyz/characters`,
               {
@@ -96,14 +100,16 @@
                 }),
               }
             );
+
             const freshHero = await response.json();
-            console.log(freshHero);
           });
+
           modalClose.addEventListener('click', () => {
             modalBg.classList.remove('modal-active');
           });
         }
       );
+
       // for delete botton & delete JSON INFO from the card
       Array.from(document.querySelectorAll('.delBtn')).forEach((btn) => {
         btn.addEventListener('click', async () => {
@@ -136,6 +142,8 @@
   });
 })();
 
+// new button&modal//
+
 (function modalNew() {
   const modalNewBg = document.querySelector('.modalNew-bg');
   const modalNewClose = document.querySelector('.modalNew-close');
@@ -150,21 +158,6 @@
 
 // to open load the image
 
-// const fileSelector = document.getElementById('file-selector');
-// fileSelector.addEventListener('change', (event) => {
-//   const fileList = event.target.files;
-//   console.log(fileList);
-
-// });
-
-// function encodeImageFileAsURL(element) {
-//   let file = element.files[0];
-//   let reader = new FileReader();
-//   reader.onloadend = function() {
-//     console.log('RESULT', reader.result)
-//   }
-//   reader.readAsDataURL(file);
-// }
 function encodeImageFileAsURL() {
   let filesSelected = document.getElementById('inputFileToLoad').files;
   if (filesSelected.length > 0) {
@@ -173,50 +166,99 @@ function encodeImageFileAsURL() {
     let fileReader = new FileReader();
 
     fileReader.onload = function (fileLoadedEvent) {
-      let srcData = fileLoadedEvent.target.result; // <--- data: base64
-
+      // let srcData = fileLoadedEvent.target.result; // <--- data: base64
+      //let newSrc = fileLoadedEvent.target.result.replace('data:', '').replace(/^.+,/, '')
+      let newSrc = fileLoadedEvent.target.result.replace(
+        /^data:image\/\w+;base64,/,
+        ''
+      );
       let newImage = document.createElement('img');
-      newImage.src = srcData;
-
-      document.getElementById('imgTest').innerHTML = newImage;
-      //alert("Converted Base64 version is " + document.getElementById("imgTest").innerHTML);
+      newImage.src = newSrc;
+      console.log(newSrc);
+      //console.log(srcData)
+      document.getElementById('imgTest').innerHTML = newImage.innerHTML;
+      alert('Converted Base64 version is '); //+ document.getElementById("imgTest").innerHTML);
       console.log(
-        'Converted Base64 version is ' +
+        'Converted Base64 version is' +
           document.getElementById('imgTest').innerHTML
       );
+
+      // submit the data to JSON
+      const inputs = Array.from(document.querySelectorAll('input'));
+      document.querySelector('#run').addEventListener('click', async () => {
+        const values = inputs.map(({ value }) => value.trim());
+        console.log(values);
+        if (values.some((value) => value === '')) {
+          console.error("There's an empty input!");
+          return;
+        }
+
+        //const [ description, shortDescription, name, image ] = values;
+        const [name, shortDescription, image, description] = values;
+
+        console.log(image);
+        console.log(values);
+        const response = await fetch(
+          `https://character-database.becode.xyz/characters`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              name,
+              shortDescription,
+              image: newSrc,
+              description,
+            }),
+          }
+        );
+        // console.log(values)
+        const freshHero = await response.json();
+        console.log(freshHero);
+      });
     };
     fileReader.readAsDataURL(fileToLoad);
   }
 }
-// submit the data to JSON
-const inputs = Array.from(document.querySelectorAll('input'));
-document.querySelector('#run').addEventListener('click', async () => {
-  const values = inputs.map(({ value }) => value.trim());
-  console.log(values);
-  if (values.some((value) => value === '')) {
-    console.error("There's an empty input!");
-    return;
-  }
-
-  //const [ description, shortDescription, name, image ] = values;
-  const [name, shortDescription, image, description] = values;
-  console.log(values);
-  const response = await fetch(
-    `https://character-database.becode.xyz/characters`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name,
-        shortDescription,
-        image,
-        description,
-      }),
-    }
-  );
-  // console.log(values)
-  const freshHero = await response.json();
-  console.log(freshHero);
+// to refresh the window
+document.getElementById('run').addEventListener('click', () => {
+  //alert("page refresh")
+  setTimeout(function () {
+    location.reload();
+  }, 500);
 });
+
+// EDIT to refresh func //
+Array.from(document.querySelectorAll('.editRun')).forEach((btn, index) => {
+  const inputs = Array.from(document.querySelectorAll('input'));
+  btn.addEventListener('click', () => {
+    //alert("page refresh")
+    let question = prompt('Are you sure?').trim().toLowerCase();
+    if (question == 'yes') {
+      confirm(`$Yes`);
+    } else {
+      alert('Try again');
+      setTimeout(function () {
+        location.reload();
+      }, 500);
+    }
+  });
+});
+//   Array.from(document.querySelectorAll('.delBtn')).forEach(
+//     (btn, index) => {
+//       const inputs = Array.from(document.querySelectorAll('input'));
+//       btn.addEventListener('click', () => {
+//     //alert("page refresh")
+//     let question= prompt("Are you sure?").trim().toLowerCase();
+//     if( question == "yes") {
+//         confirm (`$Yes`);
+//     }
+//     else{
+//         alert("Try again");
+//         setTimeout(function () {
+//           location.reload()
+//       }, 500);
+//     }
+//   });
+//     });

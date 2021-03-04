@@ -115,6 +115,7 @@ header {
 /* modal-settings */
 
 .modal-bg,
+.modalEdit-bg,
 .modalNew-bg {
   position: fixed;
   width: 100%;
@@ -131,6 +132,7 @@ header {
 }
 
 .modalNew-close,
+.modalEdit-close,
 .modal-close {
   position: absolute;
   top: 1.5rem;
@@ -144,6 +146,7 @@ header {
 
 /* newChar-settings */
 .newChar,
+.editChar,
 .charModal {
   background-color: #e6e6e6;
   font-size: 1rem;

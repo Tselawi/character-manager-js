@@ -37,14 +37,14 @@
         <button class="newBtn">Add new</button>
 
         <!-- New Char Modal-->
-        <div class="modalNew-bg">
+        <div class="modalNew-bg modalEdit-bg">
           <div class="modalNew">
-            <div class="newChar">
+            <div class="newChar editChar">
               <form action="#" method="POST">
                 <div class="newCharInputLine">
                   <label class="nameNew" for="uname"><b>Name</b></label>
                   <input
-                    class="nameNewInput"
+                    class="nameNewInput nameEditInput"
                     type="text"
                     placeholder="Enter your new person name"
                     name="uname"
@@ -80,9 +80,11 @@
                   <input class="descriptInput" type="text" rows="12" />
                 </div>
 
-                <button class="button" type="button" id="run">Submit</button>
+                <button class="button" type="button" value="refresh" id="run">
+                  Submit
+                </button>
               </form>
-              <span class="modalNew-close">X</span>
+              <span class="modalNew-close modalEdit-close">X</span>
             </div>
           </div>
         </div>
