@@ -8,6 +8,13 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;800&display=swap"
       rel="stylesheet"
     />
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Character-Catalog</title>
   </head>
@@ -16,7 +23,17 @@
     <main>
       <!-- Tools Bar -->
       <div class="toolbar">
-        <div class="serach"></div>
+        <!-- <div class="serach">
+          <form class="searchForm" action="">
+            <input
+              class="searchInput"
+              type="search"
+              placeholder="Your search..."
+            />
+            <i class="fa fa-search"></i>
+          </form>
+        </div>
+      -->
         <button class="newBtn">Add new</button>
 
         <!-- New Char Modal-->
@@ -25,17 +42,22 @@
             <div class="newChar">
               <form action="#" method="POST">
                 <div class="newCharInputLine">
-                  <label for="uname"><b>Name</b></label>
+                  <label class="nameNew" for="uname"><b>Name</b></label>
                   <input
+                    class="nameNewInput"
                     type="text"
                     placeholder="Enter your new person name"
                     name="uname"
                     required
                   />
                 </div>
+
                 <div class="newCharInputLine">
-                  <label for="psw"><b>Short description </b></label>
+                  <label class="shortDesc" for="psw"
+                    ><b>Short description </b></label
+                  >
                   <input
+                    class="shortDescInput"
                     type="text"
                     placeholder="Describe your hero in one line"
                     name="psw"
@@ -43,9 +65,9 @@
                   />
                 </div>
                 <div class="newCharInputLine">
-                  <label for="psw"><b>Select image</b></label>
+                  <label class="imgUpl" for="psw"><b>Select image</b></label>
                   <input
-                    class="button"
+                    class="button imgUplInput"
                     type="file"
                     id="inputFileToLoad"
                     type="file"
@@ -54,8 +76,8 @@
                   <div id="imgTest"></div>
                 </div>
                 <div class="newCharInputLine">
-                  <label for="psw"><b>Description</b></label>
-                  <input type="text" rows="12" />
+                  <label class="descript" for="psw"><b>Description</b></label>
+                  <input class="descriptInput" type="text" rows="12" />
                 </div>
 
                 <button class="button" type="button" id="run">Submit</button>
@@ -84,7 +106,7 @@
 
       <!-- Modal More -->
       <div class="modal-bg">
-        <div class="modal modalMore">
+        <div class="modal">
           <div class="charModal">
             <div class="charImgCont"><img class="charImg" src="" /></div>
 
@@ -99,6 +121,10 @@
       </div>
       <script src="./script.js"></script>
     </main>
-    <footer></footer>
+    <footer>
+      <p class="footText">
+        BeCode - Jespen 04.27 - Character-Catalog Project - Tariq & Tomi @2021
+      </p>
+    </footer>
   </body>
 </html>

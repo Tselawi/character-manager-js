@@ -28,17 +28,19 @@
     const butMore = document.createElement('button');
     const butEdit = document.createElement('button');
     const butDel = document.createElement('button');
-    const textMore = 'more';
-    const textEdit = 'Edit';
-    const textDel = 'Delete';
+    // const textMore = '';
+    // const textEdit = '';
+    // const textDel = '';
 
-    let z = document.createTextNode(textMore);
-    let a = document.createTextNode(textEdit);
-    let b = document.createTextNode(textDel);
-    //z = document.createTextNode(textDel);
-    butMore.appendChild(z);
-    butEdit.appendChild(a);
-    butDel.appendChild(b);
+    // let z = document.createTextNode(textMore);
+    // let a = document.createTextNode(textEdit);
+    // let b = document.createTextNode(textDel);
+
+    //document.setAttribute('src', './src/assets/menu.svg');
+
+    // butMore.appendChild(z);
+    // butEdit.appendChild(a);
+    // butDel.appendChild(b);
     elt
       .querySelector('.actions')
       .appendChild(butMore)
