@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Page Content -->
+    <div class="container">
+        <!-- Jumbotron Header -->
+        <header class="jumbotron my-4">
+            <h1 class="display-3">A Warm Welcome!</h1>
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt
+                possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam
+                repellat.</p>
+            
+            <form class="add-post-form">
+                <div class="from-group">
+                    <label for="title">Name</label>
+                    <input type="text" placeholder="Enter your charater name" class="form-control" id="name-value">
+                </div>
+                <div class="from-group">
+                    <label for="title">Short description</label>
+                    <input type="text" placeholder="Describe your hero in one line" class="form-control"
+                        id="short-value">
+                </div>
+                <div class="from-group">
+                    <label class="imgUpl" for="psw"><b>Select image:</b></label>
+                    <input class="imgUplInput mx-4 my-3" type="file" id="image-value" type="file"
+                        onchange="encodeImageFileAsURL();" />
+                </div>
+                <div class="from-group">
+                    <label for="title">Description</label>
+                    <textarea class="form-control" id="body-value"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg my-4">Create new personal</button>
+            </form>
+
+        </header>
+        <div class="post-list">
+            <!--<div class="card mb-3 ">
+                <div class="row g-0">
+                 <div class="col-md-4">
+                    <img src="..." alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <botton class="btn btn-primary">More</botton>
+                        <botton class="btn btn-primary">Edit</botton>
+                        <botton class="btn btn-primary">Delete</botton>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="./app.js"></script>
+</body>
+
+</html>
