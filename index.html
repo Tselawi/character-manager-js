@@ -19,11 +19,16 @@
     <title>Character-Catalog</title>
   </head>
   <body>
-    <header></header>
+    <header>
+      <div class="title">
+        <h1>The</br>Character</br>Catalog</h1>
+      </div>
+      
+    </header>
     <main>
       <!-- Tools Bar -->
       <div class="toolbar">
-        <!-- <div class="serach">
+        <div class="serach">
           <form class="searchForm" action="">
             <input
               class="searchInput"
@@ -33,8 +38,8 @@
             <i class="fa fa-search"></i>
           </form>
         </div>
-      -->
-        <button class="newBtn">Add new</button>
+
+        <button class="newBtn">+</button>
 
         <!-- New Char Modal-->
         <div class="modalNew-bg modalEdit-bg">
@@ -98,6 +103,7 @@
           <div class="charDetails">
             <h4 class="charName"></h4>
             <p class="charShortDesc"></p>
+            <p class="charId"></p>
           </div>
 
           <div class="actions"></div>
@@ -113,20 +119,22 @@
             <div class="charImgCont"><img class="charImg" src="" /></div>
 
             <div class="charDetails">
-              <h4 class="charName"></h4>
-              <p class="charShortDesc"></p>
+              <h4 class="charNameModal"></h4>
+              <p class="charDesc"></p>
               <p class="charId"></p>
             </div>
             <span class="modal-close">X</span>
           </div>
         </div>
       </div>
-      <script src="./script.js"></script>
+
+      
     </main>
     <footer>
       <p class="footText">
         BeCode - Jespen 04.27 - Character-Catalog Project - Tariq & Tomi @2021
       </p>
     </footer>
+    <script src="./script.js"></script>
   </body>
 </html>

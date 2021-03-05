@@ -4,17 +4,34 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
 header {
   background-image: url('./src/assets/bg1.png');
   background-repeat: no-repeat;
   background-size: 100vw;
-  height: 60vh;
+  height: 50vh;
+  color: white;
+  padding-top: 1rem;
+  padding-left: 1rem;
 }
+.title {
+  width: fit-content;
+  border: 1rem solid white;
+  padding: 2rem;
+}
+h1 {
+  font-size: 3rem;
+}
+
 .char {
   background-color: #e6e6e6a4;
   width: 40%;
   max-width: 48%;
-  min-height: 120px;
+  height: 120px;
   display: flex;
   justify-content: space-between;
 
@@ -43,6 +60,18 @@ header {
   padding: 1rem 0 1rem 0.2rem;
 }
 
+.charId {
+  display: none;
+}
+
+.charShortDesc {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
 /* Action - buttons */
 
 .actions {
@@ -55,6 +84,8 @@ header {
   height: 20px;
   width: 20px;
   border: none;
+  filter: invert(65%) sepia(1%) saturate(0%) hue-rotate(150deg) brightness(102%)
+    contrast(79%);
 }
 
 .btn:hover {
@@ -70,6 +101,10 @@ header {
 .moreBtn:hover {
   filter: invert(52%) sepia(77%) saturate(632%) hue-rotate(49deg)
     brightness(123%) contrast(101%);
+}
+
+.moreBtn:focus {
+  border: none;
 }
 
 .editBtn {
@@ -100,6 +135,28 @@ header {
   padding: 1rem 0;
 }
 
+.toolbar .newBtn {
+  background: none;
+  font-weight: 800;
+  font-size: 5rem;
+  color: #f8bd5e;
+  transition-duration: 0.8s;
+  transition-property: transform;
+}
+
+.toolbar .newBtn:hover {
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+
+/*.toolbar .newBtn:hover:after {
+  content: 'add';
+}*/
+
+button:hover {
+  cursor: pointer;
+}
+
 /* Main content */
 
 #target,
@@ -110,6 +167,10 @@ header {
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 0 4rem;
+}
+
+.grid {
+  padding-bottom: 4rem;
 }
 
 /* modal-settings */
@@ -139,6 +200,12 @@ header {
   right: 1.5rem;
   font-weight: 700;
 }
+
+.modalNew-close:hover,
+.modalEdit-close:hover,
+.modal-close:hover {
+  cursor: pointer;
+}
 .modal-active {
   visibility: visible;
   opacity: 1;
@@ -155,25 +222,15 @@ header {
   border-radius: 20px;
   position: relative;
   min-width: 50%;
-
   display: flex;
   flex-direction: column;
   align-content: space-between;
   justify-content: space-between;
-
-  /*
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    '.nameNew .nameNewInput'
-    '.shortDesc .shortDescInput'
-    '.imgUpl .imgUplInput'
-    '.descript .descriptInput';*/
 }
 
 .newCharInputLine {
+  display: flex;
+  justify-content: space-between;
   margin: 1rem 0;
 }
 
@@ -185,14 +242,19 @@ header {
   border: none;
   font-size: 1rem;
   margin-top: 20px;
+  margin-right: 50%;
 }
 
 .newBtn {
   margin: 1rem 10px;
 }
 
+.imgUpl {
+  padding-right: 3.5rem;
+}
+
 input {
-  min-width: 50%;
+  min-width: 60%;
   border: none;
   border-radius: 10px;
   padding: 5px;
@@ -206,8 +268,10 @@ input:focus {
 /* footer */
 
 footer {
-  bottom: 0;
   height: 2rem;
+
+  bottom: 0;
+  width: 100%;
   display: flex;
   justify-content: center;
   font-size: 0.6rem;
@@ -226,8 +290,8 @@ footer {
 }
 
 /* search */
-/*
-.searchFgit orm {
+
+.searchForm {
   position: relative;
   top: 50%;
   left: 50%;
@@ -263,22 +327,54 @@ footer {
   height: 42.5px;
   position: absolute;
   top: 0;
-  right: -10px;
+  right: 0;
   border-radius: 50%;
   color: #07051a;
   text-align: center;
-  font-size: 1.2em;
+  font-size: 2.5em;
   transition: all 1s;
 }
 
 .searchForm:hover {
   width: 200px;
   cursor: pointer;
+  padding-right: 3px;
 }
 
 .searchForm:hover .searchInput {
   display: block;
   border: 1px solid black;
+  font-size: 1.2rem;
 }
 
-*/
+.searchForm:hover > .fa {
+  font-size: 1.2rem;
+}
+
+@media screen and (min-width: 1600px) {
+  header {
+    height: 70vh;
+  }
+}
+@media screen and (min-width: 1200px) and (max-width: 1600px) {
+  header {
+    height: 60vh;
+  }
+}
+@media screen and (min-width: 1000px) and (max-width: 1200px) {
+  header {
+    height: 50vh;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1000px) {
+  header {
+    height: 40vh;
+  }
+}
+
+@media screen and (min-width: 555px) and (max-width: 768px) {
+  header {
+    height: 30vh;
+  }
+}
