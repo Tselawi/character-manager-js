@@ -23,7 +23,7 @@
             <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt
                 possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam
                 repellat.</p>
-            
+
             <form class="add-post-form">
                 <div class="from-group">
                     <label for="title">Name</label>
@@ -36,9 +36,10 @@
                 </div>
                 <div class="from-group">
                     <label class="imgUpl" for="psw"><b>Select image:</b></label>
-                    <input class="imgUplInput mx-4 my-3" type="file" id="image-value" type="file"
-                        onchange="encodeImageFileAsURL();" />
+                    <input class="button imgUplInput mx-4 my-3"  id="image-value" type="file"
+                        onchange="encodeImageFileAsURL()" />
                 </div>
+                <div id="imgTest"></div>
                 <div class="from-group">
                     <label for="title">Description</label>
                     <textarea class="form-control" id="body-value"></textarea>
@@ -50,7 +51,7 @@
         <div class="post-list">
             <!--<div class="card mb-3 ">
                 <div class="row g-0">
-                 <div class="col-md-4">
+                <div class="col-md-4">
                     <img src="..." alt="...">
                 </div>
                 <div class="col-md-8">
@@ -64,9 +65,7 @@
                         <botton class="btn btn-primary">Delete</botton>
                     </div>
                 </div> -->
-            </div>
         </div>
-    </div>
     </div>
     <script src="./app.js"></script>
 </body>

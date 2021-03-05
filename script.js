@@ -27,7 +27,7 @@
         .querySelector('.charImg')
         .setAttribute('src', 'data:image/png;base64,' + image);
     }
- 
+
     const butMore = document.createElement('button');
     const butEdit = document.createElement('button');
     const butDel = document.createElement('button');
