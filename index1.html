@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="stylenew.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <header>
+        <div class="title">
+          <h1>The</br>Character</br>Catalog</h1>
+        </div>
+        
+      </header>
+
+      <main>
+<!-- Tool Bar -->
+<div class="toolbar">
+    <div class="serach">
+      <form class="searchForm" action="">
+        <input
+          class="searchInput"
+          type="search"
+          placeholder="Your search..."
+        />
+        <i class="fa fa-search"></i>
+      </form>
+    </div>
+
+    <button class="newBtn">+</button>
+
+    </div>
+
+ <!-- Page Content -->
+ <div class="container">
+    <div class="post-list"></div>
+  </div>
+
+  <!-- Form  -->
+  <div class="jumbotron">
+    
+
+    <form class="add-post-form">
+      <div class="from-group">
+        <label for="title">Name</label>
+        <input
+          type="text"
+          placeholder="Enter your charater name"
+          class="form-control"
+          id="name-value"
+        />
+      </div>
+      <div class="from-group">
+        <label for="title">Short description</label>
+        <input
+          type="text"
+          placeholder="Describe your hero in one line"
+          class="form-control"
+          id="short-value"
+        />
+      </div>
+      <div class="from-group">
+        <label class="imgUpl" for="psw"><b>Select image:</b></label>
+        <input
+          class="imgUplInput mx-4 my-3"
+          type="file"
+          id="image-value"
+          type="file"
+          onchange="encodeImageFileAsURL();"
+        />
+      </div>
+      <div class="from-group">
+        <label for="title">Description</label>
+        <textarea class="form-control" id="body-value"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg my-4">
+        Create new personal
+      </button>
+    </form>
+  </div>
+
+      </main>
+      <footer>
+        <p class="footText">
+          BeCode - Jespen 04.27 - Character-Catalog Project - Tariq & Tomi @2021
+        </p>
+      </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
