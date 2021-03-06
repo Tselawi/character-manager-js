@@ -13,14 +13,14 @@ const renderPosts = (posts)=>{
     posts.forEach(post => {
         //console.log(post)
         outPut +=`
-        <div class= card mt-4 col-md-6 >
-            <div class="card-body border border-secondary">
+        <div class= card mt-4 col-md-6>
+            <div class="card-body col-md-6 border border-secondary">
                 <div class="row">
-                    <div class="col-md-4 border border-secondary image-card">
+                    <div class="col-3 border border-secondary image-card">
                         <img class ="image-card" src="data:image/png;base64,${post.image}" data-img=${post.image}">
                     </div>
         
-                    <div class="col-md-6 mx-5">
+                    <div class="col-6 mx-5">
                         <div class="card-id" data-id=${post.id}>
                             <h5 class="card-name">${post.name}</h5>
                             <p class="card-short">${post.shortDescription}</p>
@@ -49,13 +49,14 @@ fetch(url)
     
 
     postsList.addEventListener('click', (event)=>{
-       // event.preventDefault();
-        //console.log(event.target.image)
+        //event.preventDefault();
+        
         let delBtnPressed = event.target.id == "deleteBtn";
         let editBtnPressed = event.target.id == "editBtn";
         let moreBtnPressed = event.target.id == "moreBtn";
 
         let idData=event.target.parentElement.dataset.id;
+        console.log(idData)
         //Delete - remove existing post
         // method: DELETE
         if(delBtnPressed){
@@ -78,18 +79,18 @@ fetch(url)
             let nameContent = cardData.querySelector(".card-name").textContent;
             let shortContent = cardData.querySelector(".card-short").textContent;
             let imageContent = cardData.querySelector(".image-card");
-            //console.log(nameContent)
+            console.log(nameContent)
             //console.log(shortContent)
             //console.log(imageContent)
             nameValue.value = nameContent;
             shortValue.value = shortContent;
             imgValue.value = imageContent
-
+        }
             // update - update the existing post
             //method: PATCH
             btnSubmit.addEventListener('click', ()=>{
-                // console.log('post update!')
-                event.preventDefault(); //to not repeat the submit
+                console.log('post update!')
+                event.preventDefault() //to not repeat the submit
                 fetch(`${url}/${idData}`, {
                     method:'PATCH',
                     headers: {
@@ -98,14 +99,14 @@ fetch(url)
                     body: JSON.stringify({
                         name:nameValue.value,
                         shortDescription:shortValue.value,
-                        image:newSrc,
-                    })
+                        image:imgValue.value,
+                    }),
                 })
                 .then(response => response.json())
                 .then(()=> location.reload())
             })
 
-        }
+
 
         //Details - Show existing post
         // method: GET
@@ -142,6 +143,7 @@ fetch(url)
             let newImage = document.createElement('img');
             newImage.src = newSrc;
             console.log(newSrc);
+            
               //console.log(srcData)
             document.getElementById('imgTest').innerHTML = newImage.innerHTML;
               //alert('Converted Base64 version is '); //+ document.getElementById("imgTest").innerHTML);
@@ -156,8 +158,8 @@ fetch(url)
 // method: POST
 addPostForm.addEventListener('submit', (e)=>{
     e.preventDefault();
-    console.log(nameValue.value);
-    fetch(url, {
+    
+    fetch(`${url}`, {
         method:'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -177,17 +179,18 @@ addPostForm.addEventListener('submit', (e)=>{
     })
 
     // reset input field to empty after submit
-
     nameValue.value= ""; 
     shortValue.value= "";
     imgValue.value= "";
     descValue.value="";
     
+    
 
 });
+
         }
     fileReader.readAsDataURL(fileToLoad); 
-}
+    }
 }
 
 
