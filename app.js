@@ -8,6 +8,8 @@ const btnSubmit = document.querySelector('.btn-submit');
 const modalNewBg = document.querySelector('.modalNew-bg');
 const modalBtn = document.querySelector('.newBtn');
 const modalClose = document.querySelector('.modalNew-close');
+
+
 modalBtn.addEventListener('click',  ()=> {
     modalNewBg.classList.add('modal-active');
 });
@@ -122,13 +124,13 @@ fetch(url)
             //console.log(imageContent)
             nameValue.value = nameContent;
             shortValue.value = shortContent;
-            imgValue.value = imageContent
+            imgValue.value = imageContent;
         }
             // update - update the existing post
             //method: PATCH
-            btnSubmit.addEventListener('click', ()=>{
+            btnSubmit.addEventListener('click', (e)=>{
                 console.log('post update!')
-                event.preventDefault() //to not repeat the submit
+                e.preventDefault() //to not repeat the submit
                 fetch(`${url}/${idData}`, {
                     method:'PATCH',
                     headers: {
@@ -198,8 +200,7 @@ fetch(url)
 // method: POST
 addPostForm.addEventListener('submit', (e)=>{
     e.preventDefault();
-    
-    
+
     fetch(url, {
         method:'POST',
         headers: {
