@@ -4,7 +4,7 @@ const nameValue = document.querySelector('#name-value');
 const shortValue = document.querySelector('#short-value');
 const imgValue = document.getElementById('image-value');
 const descValue = document.querySelector('#body-value');
-const btnSubmit = document.querySelector('.btn');
+const btnSubmit = document.querySelector('.btn-submit');
 
 
 let outPut= '';
@@ -12,26 +12,51 @@ let outPut= '';
 const renderPosts = (posts)=>{
     posts.forEach(post => {
         //console.log(post)
-        outPut +=`
-        <div class= card mt-4 col-md-6>
-            <div class="card-body col-md-6 border border-secondary">
-                <div class="row">
-                    <div class="col-3 border border-secondary image-card">
-                        <img class ="image-card" src="data:image/png;base64,${post.image}" data-img=${post.image}">
-                    </div>
+        /*outPut +=`
         
-                    <div class="col-6 mx-5">
-                        <div class="card-id" data-id=${post.id}>
-                            <h5 class="card-name">${post.name}</h5>
-                            <p class="card-short">${post.shortDescription}</p>
-                            <button class="btn btn-primary" id="moreBtn">More</button>
-                            <button class="btn btn-primary" id="editBtn">Edit</button>
-                            <button class="btn btn-primary" id="deleteBtn">Delete</button>
+        <div class= "mt-4 col-6">
+            
+                <div class="card-body col-12 border border-secondary">
+                    <div class="row">
+                        <div class="col-3 border border-secondary image-card">
+                            <img class ="image-card" src="data:image/png;base64,${post.image}" data-img=${post.image}">
+                        </div>
+        
+                        <div class="col-6 mx-5">
+                            <div class="card-id" data-id=${post.id}>
+                                <h5 class="card-name">${post.name}</h5>
+                                <p class="card-short">${post.shortDescription}</p>
+                                <button class="btn btn-primary" id="moreBtn">More</button>
+                                <button class="btn btn-primary" id="editBtn">Edit</button>
+                                <button class="btn btn-primary" id="deleteBtn">Delete</button>
+                            </div>
                         </div>
                     </div>
                 </div>
+            
+        </div>
+    
+        `;*/
+        outPut +=`
+        <div class="card-id" data-id=${post.id}>
+
+            <img class ="image-card" src="data:image/png;base64,${post.image}" data-img=${post.image}">
+
+                <div class="card-infos" id="cardInfo" data-id=${post.id}>
+                    <h5 class="card-name  ">${post.name}</h5>
+                    <p class="card-short ">${post.shortDescription}</p>
+
+                </div>
+
+                <div class="btns" data-id=${post.id}>
+                    <button class="btn " id="moreBtn"></button>
+                    <button class="btn " id="editBtn"></button>
+                    <button class="btn " id="deleteBtn"></button>
+                    <p class="card-name  ">${post.name}</p>
+                <p class="card-short ">${post.shortDescription}</p>
             </div>
-        </div>    
+
+        </div> 
         `;
     });
     postsList.innerHTML=outPut;
@@ -68,7 +93,7 @@ fetch(url)
             },
             })
             .then(response => response.json())
-            .then(()=> location.reload())//refresh the window
+            .then(()=> location.reload()) //refresh the window
         }
 
         //Edit - change existing post
@@ -142,15 +167,15 @@ fetch(url)
 
             let newImage = document.createElement('img');
             newImage.src = newSrc;
-            console.log(newSrc);
+            //console.log(newSrc);
             
               //console.log(srcData)
             document.getElementById('imgTest').innerHTML = newImage.innerHTML;
               //alert('Converted Base64 version is '); //+ document.getElementById("imgTest").innerHTML);
-            console.log(
-                'Converted Base64 version is' +
-                document.getElementById('imgTest').innerHTML
-            );
+           // console.log(
+             //   'Converted Base64 version is' +
+              //  document.getElementById('imgTest').innerHTML
+            //);
         
     
     
@@ -159,7 +184,8 @@ fetch(url)
 addPostForm.addEventListener('submit', (e)=>{
     e.preventDefault();
     
-    fetch(`${url}`, {
+    
+    fetch(url, {
         method:'POST',
         headers: {
             'Content-Type': 'application/json',

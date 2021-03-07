@@ -1,0 +1,61 @@
+    * {
+        padding: 0px;
+        margin: 0px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .btns {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 1.2rem;
+    }
+
+        .btn {
+        height: 20px;
+        width: 20px;
+        border: none;
+        filter: invert(65%) sepia(1%) saturate(0%) hue-rotate(150deg) brightness(102%)
+        contrast(79%);
+        }
+
+        .btn:hover {
+            cursor: pointer;
+        }
+        
+        #moreBtn {
+            background: url('./src/assets/menu.svg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        #moreBtn:hover {
+            filter: invert(52%) sepia(77%) saturate(632%) hue-rotate(49deg)
+            brightness(123%) contrast(101%);
+        }
+        
+        #editBtn {
+            background: url('./src/assets/edit.svg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        #editBtn:hover {
+            filter: invert(31%) sepia(79%) saturate(6664%) hue-rotate(297deg)
+            brightness(113%) contrast(130%);
+        }
+        
+        #deleteBtn {
+            background: url('./src/assets/trash.svg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        #deleteBtn:hover {
+            filter: invert(45%) sepia(40%) saturate(4500%) hue-rotate(182deg)
+            brightness(101%) contrast(104%);
+        }
+        
+        .btns p {
+            display: none;
+        }
