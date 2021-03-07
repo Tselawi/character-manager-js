@@ -112,7 +112,7 @@
         
         /* modal-settings */
         
-        .modal-bg,
+        .modalNew-bg,
         .modalEdit-bg,
         .modalNew-bg {
             position: fixed;
@@ -126,16 +126,36 @@
             align-items: center;
             visibility: hidden;
             opacity: 0;
-            transition: visibility 0s, opacity 0.5s;
+            transition: visibility 0s, opacity 0.5s; 
         }
+        /* tariq */
+        .modal{
+            position: relative;
+            background-color: white;
+            height: 40%;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        .btn-submit{
+            margin-top: 20px;
+            padding: 10px 30px;
+            background-color: #f8bd5e;
+            color: white;
+            border: none;
+            cursor: pointer; 
+        }
+
+        /* end tariq */
         
         .modalNew-close,
         .modalEdit-close,
         .modal-close {
             position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            font-weight: 700;
+            top: 20px;
+            right: 30px;
+            font-weight: bold;
         }
         
         .modalNew-close:hover,
@@ -149,10 +169,11 @@
         }
         
         .add-post-form {
-            border: 1px solid black;
+            /* border: 1px solid black; */
             margin: 3rem;
             padding: 3rem;
         }
+        
         
         /* Main content*/
         
