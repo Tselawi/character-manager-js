@@ -128,9 +128,9 @@ fetch(url)
         }
             // update - update the existing post
             //method: PATCH
-            btnSubmit.addEventListener('click', (e)=>{
+            btnSubmit.addEventListener('click', ()=>{
                 console.log('post update!')
-                e.preventDefault() //to not repeat the submit
+                //e.preventDefault() //to not repeat the submit
                 fetch(`${url}/${idData}`, {
                     method:'PATCH',
                     headers: {
