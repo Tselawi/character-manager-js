@@ -105,6 +105,55 @@ h1 {
   font-size: 1.2rem;
 }
 
+.btnSubmit {
+  width: 100px;
+  height: 2rem;
+}
+
+/* modal-settings */
+
+.modal-bg,
+.modalEdit-bg,
+.modalNew-bg {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 33, 59, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s;
+}
+
+.modalNew-close,
+.modalEdit-close,
+.modal-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-weight: 700;
+}
+
+.modalNew-close:hover,
+.modalEdit-close:hover,
+.modal-close:hover {
+  cursor: pointer;
+}
+.modal-active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.add-post-form {
+  border: 1px solid black;
+  margin: 3rem;
+  padding: 3rem;
+}
+
 /* Main content*/
 
 .post-list,
@@ -116,19 +165,32 @@ h1 {
   flex-wrap: wrap;
   padding: 0 4rem;
 }
-.card-frame {
+.card-id {
   background-color: #e6e6e6a4;
   width: 40%;
   max-width: 48%;
   height: 120px;
   display: flex;
   justify-content: space-between;
+  flex-grow: 2;
   border: 1px solid black;
   border-radius: 20px;
   margin: 10px;
-  flex-grow: 2;
+
   overflow: hidden;
+  /*
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas: '.card1 .card2 .card3';
+  */
 }
+
+/*.card1 .card2 .card3 {
+  display: block;
+  align-content: center;
+}*/
 
 .card-infos {
   width: 50%;
@@ -199,6 +261,10 @@ h1 {
 #deleteBtn:hover {
   filter: invert(45%) sepia(40%) saturate(4500%) hue-rotate(182deg)
     brightness(101%) contrast(104%);
+}
+
+.btns p {
+  display: none;
 }
 
 /* footer */

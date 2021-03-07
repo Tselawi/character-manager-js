@@ -10,13 +10,9 @@
   );
   const heroes = await response.json();
 
-  heroes.forEach(({ name, shortDescription, image, id}) => {
+  heroes.forEach(({ name, shortDescription, image, id }) => {
     const elt = tpl.cloneNode(true).content;
-<<<<<<< HEAD
-    console.log(id);
-=======
-   // console.log(id);
->>>>>>> tomi-tariq
+    // console.log(id);
 
     elt.querySelector('.charName').innerText = name;
 
@@ -33,7 +29,7 @@
         .querySelector('.charImg')
         .setAttribute('src', 'data:image/png;base64,' + image);
     }
- 
+
     const butMore = document.createElement('button');
     const butEdit = document.createElement('button');
     const butDel = document.createElement('button');
@@ -55,138 +51,11 @@
 
     target.appendChild(elt);
 
-       // for delete botton & delete JSON INFO from the card
-      
-        document.querySelectorAll('.delBtn').forEach(btn =>{
-        btn.addEventListener('click', async () => {
-          //modalBg.classList.add('modal-active');
-          
-          
-          
-          try {
-            const response = await fetch(
-              `https://character-database.becode.xyz/characters/${id}`,
-              {
-                method: 'DELETE',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-              }
-            );
-
-            const deleteditem = await response.json();
-
-            console.log(deleteditem);
-          } catch (err) {
-            console.error(`Unknown item with id:${id}`);
-          }
-        
-      });
-        //modalClose.addEventListener('click', () => {
-          //modalBg.classList.remove('modal-active');
-      
-    });
-  });
-  
-  ///// end the code /////
-
-  ////////////////////////////////
-///// Start the code /////
-    const modalBg = document.querySelector('.modal-bg');
-    const modalClose = document.querySelector('.modal-close');
-<<<<<<< HEAD
-
-    // for the botton more
-
-    // (function modal() {
-    //   Array.from(document.querySelectorAll('.moreBtn')).forEach(
-    //     (btn, index) => {
-    //       btn.addEventListener('click', function () {
-    //         modalBg.classList.add('modal-active');
-    //       });
-    //       modalClose.addEventListener('click', function () {
-    //         modalBg.classList.remove('modal-active');
-    //       });
-
-    //     }
-    //   );
-
-    const charCard = document.querySelector('.charCard'); //charCard
-    const modal = document.querySelector('.charModal'); //modal
-    const input = document.querySelector('.charId'); //char id
-
-    document.querySelector('.moreBtn').addEventListener('click', async () => {
-      modalBg.classList.add('modal-active');
-      const id = input.innerHTML;
-      console.log(id);
-
-      // if (isNaN(id) || id === 0) {
-      //   console.error('Invalid id!');
-      //   //return;
-      // }
-
-      try {
-        const response = await fetch(
-          `https://character-database.becode.xyz/characters/${id}`
-        );
-        const { name, description, abilities } = await response.json();
-
-        const elt = charCard.cloneNode(true).content;
-
-        elt.querySelector('.name').innerText = name;
-        elt.querySelector('.charDesc').innerText = description;
-        //elt.querySelector(".powers").innerText = abilities.join(", ");
-
-        modal.firstElementChild
-          ? modal.replaceChild(elt, modal.firstElementChild)
-          : modal.appendChild(elt);
-      } catch (err) {
-        console.error(`Unknown hero with id: ${id}!`);
-      }
-    });
-
-    //for edit botton edit JSON infon in card
-    const modalNewBg = document.querySelector('.modalNew-bg');
-    Array.from(document.querySelectorAll('.editBtn')).forEach((btn, index) => {
-      const inputs = Array.from(document.querySelectorAll('input'));
-      btn.addEventListener('click', async () => {
-        modalNewBg.classList.add('modal-active');
-        const values = inputs.map(({ value }) => value.trim());
-        document
-          .querySelector('.nameEditInput')
-          .setAttribute('placeholder', 'newname');
-        document.querySelector('#run').setAttribute('class', 'editRun');
-        const [name, shortDescription] = values;
-
-        const response = await fetch(
-          `https://character-database.becode.xyz/characters`,
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              name,
-              shortDescription,
-              //  image,
-              //description,
-            }),
-          }
-        );
-
-        const freshHero = await response.json();
-      });
-
-      modalClose.addEventListener('click', () => {
-        modalBg.classList.remove('modal-active');
-      });
-    });
-
     // for delete botton & delete JSON INFO from the card
-    Array.from(document.querySelectorAll('.delBtn')).forEach((btn) => {
+
+    document.querySelectorAll('.delBtn').forEach((btn) => {
       btn.addEventListener('click', async () => {
-        modalBg.classList.add('modal-active');
-        console.log({ id });
+        //modalBg.classList.add('modal-active');
 
         try {
           const response = await fetch(
@@ -203,89 +72,137 @@
 
           console.log(deleteditem);
         } catch (err) {
-          console.error(`Unknown item with id: ${id}!`);
+          console.error(`Unknown item with id:${id}`);
         }
       });
-      modalClose.addEventListener('click', () => {
-        modalBg.classList.remove('modal-active');
-      });
+      //modalClose.addEventListener('click', () => {
+      //modalBg.classList.remove('modal-active');
     });
-    //})();
   });
-})();
-=======
-    (function modal() {
-      // for the botton more
-      Array.from(document.querySelectorAll('.moreBtn')).forEach(
-        (btn) => {
-          btn.addEventListener('click', function () {
-            modalBg.classList.add('modal-active');
-          });
-          modalClose.addEventListener('click', function () {
-            modalBg.classList.remove('modal-active');
-          });
+
+  ///// end the code /////
+
+  ///// Start the code /////
+  const modalBg = document.querySelector('.modal-bg');
+  const modalClose = document.querySelector('.modal-close');
+
+  // for the botton more
+
+  // (function modal() {
+  //   Array.from(document.querySelectorAll('.moreBtn')).forEach(
+  //     (btn, index) => {
+  //       btn.addEventListener('click', function () {
+  //         modalBg.classList.add('modal-active');
+  //       });
+  //       modalClose.addEventListener('click', function () {
+  //         modalBg.classList.remove('modal-active');
+  //       });
+
+  //     }
+  //   );
+
+  const charCard = document.querySelector('.charCard'); //charCard
+  const modal = document.querySelector('.charModal'); //modal
+  const input = document.querySelector('.charId'); //char id
+
+  document.querySelector('.moreBtn').addEventListener('click', async () => {
+    modalBg.classList.add('modal-active');
+    const id = input.innerHTML;
+    console.log(id);
+
+    // if (isNaN(id) || id === 0) {
+    //   console.error('Invalid id!');
+    //   //return;
+    // }
+
+    try {
+      const response = await fetch(
+        `https://character-database.becode.xyz/characters/${id}`
+      );
+      const { name, description, abilities } = await response.json();
+
+      const elt = charCard.cloneNode(true).content;
+
+      elt.querySelector('.name').innerText = name;
+      elt.querySelector('.charDesc').innerText = description;
+      //elt.querySelector(".powers").innerText = abilities.join(", ");
+
+      modal.firstElementChild
+        ? modal.replaceChild(elt, modal.firstElementChild)
+        : modal.appendChild(elt);
+    } catch (err) {
+      console.error(`Unknown hero with id: ${id}!`);
+    }
+  });
+
+  //for edit botton edit JSON infon in card
+  const modalNewBg = document.querySelector('.modalNew-bg');
+  Array.from(document.querySelectorAll('.editBtn')).forEach((btn, index) => {
+    const inputs = Array.from(document.querySelectorAll('input'));
+    btn.addEventListener('click', async () => {
+      modalNewBg.classList.add('modal-active');
+      const values = inputs.map(({ value }) => value.trim());
+      document
+        .querySelector('.nameEditInput')
+        .setAttribute('placeholder', 'newname');
+      document.querySelector('#run').setAttribute('class', 'editRun');
+      const [name, shortDescription] = values;
+
+      const response = await fetch(
+        `https://character-database.becode.xyz/characters`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name,
+            shortDescription,
+            //  image,
+            //description,
+          }),
         }
       );
-    })();
-///// end the code /////
-////////////////////////
 
-///////start the code ///////
-      //for edit botton edit JSON infon in card
-      const modalNewBg = document.querySelector('.modalNew-bg');
-      const inputs = Array.from(document.querySelectorAll('input'));
-      Array.from(document.querySelectorAll('.editBtn')).forEach(
-        (btn) => {
-          btn.addEventListener('click', async () => {
-            modalNewBg.classList.add('modal-active');
-            const values = inputs.map(({ value }) => value.trim());
-            
-            // let question = prompt('Are you sure?').trim().toLowerCase();
-          // if (question == 'yes') {
-          // } else {
-          //   alert('Try again');
-          //   setTimeout(function () {
-          //     location.reload();
-          //   }, 500);
-          // }
-            const [name, shortDescription] = values;
-            // let newEdit=document.querySelector('.nameEditInput')
-            // newEdit.setAttribute('placeholder', '');
-            // document.querySelector('shortDescEditInput')
-            //.setAttribute('placeholder', 'Writer the new short descrption')
-          //document.querySelector('#run').setAttribute('class', 'editRun');
-            const response = await fetch(
-              `https://character-database.becode.xyz/characters`,
-              {
-                method: 'GET',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                  name,
-                  shortDescription,
-                  //  image,
-                  //description,
-                }),
-              }
-              
-            );
+      const freshHero = await response.json();
+    });
 
-            const freshHero = await response.json();
-          });
-          
-          modalClose.addEventListener('click', () => {
-            modalBg.classList.remove('modal-active');
-          });
-        }
+    modalClose.addEventListener('click', () => {
+      modalBg.classList.remove('modal-active');
+    });
+  });
 
-      );
+  // for delete botton & delete JSON INFO from the card
+  Array.from(document.querySelectorAll('.delBtn')).forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      modalBg.classList.add('modal-active');
+      console.log({ id });
 
-   
-    
-  
+      try {
+        const response = await fetch(
+          `https://character-database.becode.xyz/characters/${id}`,
+          {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        );
 
->>>>>>> tomi-tariq
+        const deleteditem = await response.json();
+
+        console.log(deleteditem);
+      } catch (err) {
+        console.error(`Unknown item with id: ${id}!`);
+      }
+    });
+    modalClose.addEventListener('click', () => {
+      modalBg.classList.remove('modal-active');
+    });
+  });
+  //})();
+});
+//})();
 
 // new button&modal//
 
@@ -302,7 +219,7 @@
 // })();
 
 // to open load the image
-})();
+//})();
 function encodeImageFileAsURL() {
   let filesSelected = document.getElementById('inputFileToLoad').files;
   if (filesSelected.length > 0) {
@@ -327,7 +244,6 @@ function encodeImageFileAsURL() {
         'Converted Base64 version is' +
           document.getElementById('imgTest').innerHTML
       );
-  
 
       // submit the data to JSON
       const inputs = Array.from(document.querySelectorAll('input'));
@@ -338,12 +254,11 @@ function encodeImageFileAsURL() {
           console.error("There's an empty input!");
           return;
         }
-// to refresh the window
-          setTimeout(function () {
-              location.reload();
-              }, 500);
-  
-  
+        // to refresh the window
+        setTimeout(function () {
+          location.reload();
+        }, 500);
+
         //const [ description, shortDescription, name, image ] = values;
         const [name, shortDescription, image, description] = values;
 
@@ -370,8 +285,8 @@ function encodeImageFileAsURL() {
       });
     };
     fileReader.readAsDataURL(fileToLoad);
-    }
   }
+}
 
 // to refresh the window
 // document.getElementById('run').addEventListener('click', () => {
