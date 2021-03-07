@@ -5,6 +5,10 @@ const shortValue = document.querySelector('#short-value');
 const imgValue = document.getElementById('image-value');
 const descValue = document.querySelector('#body-value');
 const btnSubmit = document.querySelector('.btn-submit');
+const modalBg = document.querySelector('.modal-bg');
+const modalClose = document.querySelector('.modal-close');
+const modal = document.querySelector('.charModal');
+const modalNewBg = document.querySelector('.modalNew-bg');
 
 
 let outPut= '';
@@ -218,5 +222,24 @@ addPostForm.addEventListener('submit', (e)=>{
     fileReader.readAsDataURL(fileToLoad); 
     }
 }
-
+    // // to open the window 
+    // (function modal() {
+    //     // for the botton more
+    //     Array.from(document.querySelectorAll('#moreBtn')).forEach(
+    //     (btn) => {
+    //         btn.addEventListener('click', function () {
+    //         modalBg.classList.add('modal-active');
+    //         });
+    //         modalClose.addEventListener('click', function () {
+    //         modalBg.classList.remove('modal-active');
+    //         });
+    //     }
+    //     );
+    // })();
+        // document.querySelector('.newBtn').addEventListener('click', function () {
+        //         modalNewBg.classList.add('modal-active');
+        //     });
+        //     modalNewClose.addEventListener('click', () => {
+        //         modalNewBg.classList.remove('modal-active');
+        //     });
 
