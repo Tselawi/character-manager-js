@@ -21,6 +21,7 @@ Use best JS practices
  * REST API
 
 ## Our URL project:
+https://tselawi.github.io/character-manager-js/
 
 ## The tasks done by:
 * [Tomi](https://github.com/szobonyatomi)
