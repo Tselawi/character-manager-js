@@ -5,7 +5,7 @@
 }
 
 header {
-  background-image: url('./src/assets/bg1.png');
+  background-image: url('../assets/bg1.png');
   background-repeat: no-repeat;
   background-size: 100vw;
   height: 50vh;
@@ -322,7 +322,7 @@ h3 {
 }
 
 #moreBtn {
-  background: url('./src/assets/menu.svg');
+  background: url('../assets/menu.svg');
   background-size: cover;
   background-position: center;
 }
@@ -333,7 +333,7 @@ h3 {
 }
 
 #editBtn {
-  background: url('./src/assets/edit.svg');
+  background: url('../assets/edit.svg');
   background-size: cover;
   background-position: center;
 }
@@ -344,7 +344,7 @@ h3 {
 }
 
 #deleteBtn {
-  background: url('./src/assets/trash.svg');
+  background: url('../assets/trash.svg');
   background-size: cover;
   background-position: center;
 }
