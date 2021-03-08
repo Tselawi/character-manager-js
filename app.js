@@ -6,9 +6,26 @@ const imgValue = document.getElementById('image-value');
 const descValue = document.querySelector('#body-value');
 const btnSubmit = document.querySelector('.btn-submit');
 const modalBg = document.querySelector('.modal-bg');
-const modalClose = document.querySelector('.modal-close');
+//const modalClose = document.querySelector('.modal-close');
 const modal = document.querySelector('.charModal');
 const modalNewBg = document.querySelector('.modalNew-bg');
+const modalBtn = document.querySelector('.newBtn');
+const modalClose = document.querySelector('.modalNew-close');
+const modalMoreBg = document.querySelector('.modalMore-bg');
+const modalMoreClose = document.querySelector('.modalMore-close');
+const cardName = document.querySelector('.card-name');
+const cardDescr = document.querySelector('.descr');
+const cardImage = document.querySelector('#moreImage');
+
+modalBtn.addEventListener('click', () => {
+  modalNewBg.classList.add('modal-active');
+});
+modalClose.addEventListener('click', () => {
+  modalNewBg.classList.remove('modal-active');
+});
+modalMoreClose.addEventListener('click', () => {
+  modalMoreBg.classList.remove('modal-active');
+});
 
 let outPut = '';
 
@@ -20,8 +37,9 @@ const renderPosts = (posts) => {
             <img class ="image-card" src="data:image/png;base64,${post.image}" data-img=${post.image}">
 
                 <div class="card-infos" id="cardInfo" data-id=${post.id}>
-                    <h5 class="card-name  ">${post.name}</h5>
-                    <p class="card-short ">${post.shortDescription}</p>
+                    <h5 class="card-name">${post.name}</h5>
+                    <p class="card-short">${post.shortDescription}</p>
+                    <p class="description">${post.description}</p>
 
                 </div>
 
@@ -30,7 +48,9 @@ const renderPosts = (posts) => {
                     <button class="btn " id="editBtn"></button>
                     <button class="btn " id="deleteBtn"></button>
                     <p class="card-name  ">${post.name}</p>
-                <p class="card-short ">${post.shortDescription}</p>
+                    <p class="card-short ">${post.shortDescription}</p>
+                    <p class="description">${post.description}</p>
+                    <p class="image">${post.image}</p>
             </div>
 
         </div> 
@@ -49,14 +69,12 @@ fetch(url)
 
 postsList.addEventListener('click', (event) => {
   //event.preventDefault();
-
   let delBtnPressed = event.target.id == 'deleteBtn';
   let editBtnPressed = event.target.id == 'editBtn';
   let moreBtnPressed = event.target.id == 'moreBtn';
 
   let idData = event.target.parentElement.dataset.id;
   console.log(idData);
-
   //Delete - remove existing post
   // method: DELETE
   if (delBtnPressed) {
@@ -75,6 +93,7 @@ postsList.addEventListener('click', (event) => {
   // method: GET
   if (editBtnPressed) {
     //console.log('edit post')
+    modalNewBg.classList.add('modal-active');
     const cardData = event.target.parentElement;
     let nameContent = cardData.querySelector('.card-name').textContent;
     let shortContent = cardData.querySelector('.card-short').textContent;
@@ -88,9 +107,9 @@ postsList.addEventListener('click', (event) => {
   }
   // update - update the existing post
   //method: PATCH
-  btnSubmit.addEventListener('click', () => {
+  btnSubmit.addEventListener('click', (e) => {
     console.log('post update!');
-    event.preventDefault(); //to not repeat the submit
+    e.preventDefault(); //to not repeat the submit
     fetch(`${url}/${idData}`, {
       method: 'PATCH',
       headers: {
@@ -111,16 +130,20 @@ postsList.addEventListener('click', (event) => {
 
   if (moreBtnPressed) {
     //console.log('more post')
+    modalMoreBg.classList.add('modal-active');
     const cardData = event.target.parentElement;
     let nameContent = cardData.querySelector('.card-name').textContent;
-    let shortContent = cardData.querySelector('.card-short').textContent;
-    let imageContent = cardData.querySelector('.image-card');
-    //console.log(nameContent)
+    let Content = cardData.querySelector('.description').textContent;
+    let imageContent = cardData.querySelector('.image').textContent;
+    //console.log(nameContent);
     //console.log(shortContent)
-    //console.log(imageContent)
-    nameValue.value = nameContent;
-    shortValue.value = shortContent;
-    imgValue.value = imageContent;
+    //console.log(imageContent);
+    cardName.innerHTML = nameContent;
+    cardDescr.innerHTML = Content;
+
+    let att = document.createAttribute('src');
+    att.value = 'data:image/png;base64,' + imageContent;
+    cardImage.setAttributeNode(att);
   }
 });
 
@@ -185,23 +208,3 @@ function encodeImageFileAsURL() {
     fileReader.readAsDataURL(fileToLoad);
   }
 }
-// // to open the window
-// (function modal() {
-//     // for the botton more
-//     Array.from(document.querySelectorAll('#moreBtn')).forEach(
-//     (btn) => {
-//         btn.addEventListener('click', function () {
-//         modalBg.classList.add('modal-active');
-//         });
-//         modalClose.addEventListener('click', function () {
-//         modalBg.classList.remove('modal-active');
-//         });
-//     }
-//     );
-// })();
-// document.querySelector('.newBtn').addEventListener('click', function () {
-//         modalNewBg.classList.add('modal-active');
-//     });
-//     modalNewClose.addEventListener('click', () => {
-//         modalNewBg.classList.remove('modal-active');
-//     });
