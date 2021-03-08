@@ -5,9 +5,6 @@ const shortValue = document.querySelector('#short-value');
 const imgValue = document.getElementById('image-value');
 const descValue = document.querySelector('#body-value');
 const btnSubmit = document.querySelector('.btn-submit');
-const modalBg = document.querySelector('.modal-bg');
-//const modalClose = document.querySelector('.modal-close');
-const modal = document.querySelector('.charModal');
 const modalNewBg = document.querySelector('.modalNew-bg');
 const modalBtn = document.querySelector('.newBtn');
 const modalClose = document.querySelector('.modalNew-close');
@@ -63,6 +60,7 @@ const url = 'https://character-database.becode.xyz/characters';
 
 // Get read the posts
 // Method:Get
+
 fetch(url)
   .then((response) => response.json())
   .then((data) => renderPosts(data));
@@ -75,10 +73,11 @@ postsList.addEventListener('click', (event) => {
 
   let idData = event.target.parentElement.dataset.id;
   console.log(idData);
+
   //Delete - remove existing post
   // method: DELETE
+
   if (delBtnPressed) {
-    //console.log('remove post')
     fetch(`${url}/${idData}`, {
       method: 'DELETE',
       headers: {
@@ -91,22 +90,21 @@ postsList.addEventListener('click', (event) => {
 
   //Edit - change existing post
   // method: GET
+
   if (editBtnPressed) {
-    //console.log('edit post')
     modalNewBg.classList.add('modal-active');
     const cardData = event.target.parentElement;
     let nameContent = cardData.querySelector('.card-name').textContent;
     let shortContent = cardData.querySelector('.card-short').textContent;
     let imageContent = cardData.querySelector('.image-card');
-    console.log(nameContent);
-    //console.log(shortContent)
-    //console.log(imageContent)
+
     nameValue.value = nameContent;
     shortValue.value = shortContent;
     imgValue.value = imageContent;
   }
   // update - update the existing post
   //method: PATCH
+
   btnSubmit.addEventListener('click', (e) => {
     console.log('post update!');
     e.preventDefault(); //to not repeat the submit
@@ -129,15 +127,12 @@ postsList.addEventListener('click', (event) => {
   // method: GET
 
   if (moreBtnPressed) {
-    //console.log('more post')
     modalMoreBg.classList.add('modal-active');
     const cardData = event.target.parentElement;
     let nameContent = cardData.querySelector('.card-name').textContent;
     let Content = cardData.querySelector('.description').textContent;
     let imageContent = cardData.querySelector('.image').textContent;
-    //console.log(nameContent);
-    //console.log(shortContent)
-    //console.log(imageContent);
+
     cardName.innerHTML = nameContent;
     cardDescr.innerHTML = Content;
 
@@ -155,8 +150,6 @@ function encodeImageFileAsURL() {
     let fileReader = new FileReader();
 
     fileReader.onload = function (fileLoadedEvent) {
-      // let srcData = fileLoadedEvent.target.result; // <--- data: base64
-      //let newSrc = fileLoadedEvent.target.result.replace('data:', '').replace(/^.+,/, '')
       let newSrc = fileLoadedEvent.target.result.replace(
         /^data:image\/\w+;base64,/,
         ''
@@ -164,18 +157,12 @@ function encodeImageFileAsURL() {
 
       let newImage = document.createElement('img');
       newImage.src = newSrc;
-      //console.log(newSrc);
 
-      //console.log(srcData)
       document.getElementById('imgTest').innerHTML = newImage.innerHTML;
-      //alert('Converted Base64 version is '); //+ document.getElementById("imgTest").innerHTML);
-      // console.log(
-      //   'Converted Base64 version is' +
-      //  document.getElementById('imgTest').innerHTML
-      //);
 
       // create - insert new post
       // method: POST
+
       addPostForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -198,7 +185,7 @@ function encodeImageFileAsURL() {
             renderPosts(dataArr);
           });
 
-        // reset input field to empty after submit
+        // RESET input field to empty after submit
         nameValue.value = '';
         shortValue.value = '';
         imgValue.value = '';
